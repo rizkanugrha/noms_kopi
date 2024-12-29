@@ -1,9 +1,9 @@
 <!-- Header -->
 <?php
-use App\Models\UserModel;
-$userModel = new UserModel;
+use App\Models\AdminModel;
+$userModel = new AdminModel();
 $sess = session();
-$curUser = $sess->get('currentuser');
+$curUser = $sess->get('currentadmin');
 $profile = $userModel->find($curUser['userid']);
 
 ?>
@@ -39,28 +39,8 @@ $profile = $userModel->find($curUser['userid']);
             <p class="text-muted text-center mb-3">@<?= $profile['username']; ?></p>
 
             <!-- Logout Button -->
-            <a href="<?= base_url('auth/logout') ?>" class="btn btn-danger w-100">
+            <a href="<?= base_url('admin/logout') ?>" class="btn btn-danger w-100">
                 Logout
-            </a>
-        </div>
-    </div>
-</div>
-
-
-
-
-<!-- Category Navigation -->
-<div class="container mt-3 text-center">
-    <div class="category-btn">
-        <div class="category-buttons">
-            <a href="<?= base_url('dashboard/minuman') ?>">
-                <button class="category-btn">Minuman</button>
-            </a>
-            <a href="<?= base_url('dashboard/makanan') ?>">
-                <button class="category-btn">Makanan</button>
-            </a>
-            <a href="<?= base_url('dashboard/snack') ?>">
-                <button class="category-btn">Snack</button>
             </a>
         </div>
     </div>

@@ -12,7 +12,7 @@ class AdminModel extends Model
     protected $returnType = 'array';
     protected $useTimestamps = false;
 
-    public $loginRules = [
+    public $adminRules = [
         'username' => [
             'rules' => 'required',
             'errors' => [

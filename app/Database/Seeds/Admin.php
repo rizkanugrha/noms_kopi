@@ -4,7 +4,6 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 use \App\Models\AdminModel;
-use \App\Entities\User;
 
 class Admin extends Seeder
 {
@@ -13,14 +12,14 @@ class Admin extends Seeder
         # $2y$10$WhI4kzkQ6bky6EtCboe3JOt/GivGPPJxsDY56wbBV7Lgy2B932QHS -> testingpassword
         $data = [
             [
-                "id"       => 1,
+                "id" => 1,
                 "username" => "gento",
                 "password" => 'gento666',
                 "fullname" => "Rizka Nugraha",
                 "email" => "rizka@mhs.dinus.ac.id"
             ],
             [
-                "id"       => 2,
+                "id" => 2,
                 "username" => "Dayuda",
                 "password" => 'yudabrebes123',
                 "fullname" => "Krez Bavior",

@@ -18,8 +18,8 @@ class UserModel extends Model
             'errors' => [
                 'required' => 'Username tidak boleh kosong.',
                 'is_unique' => 'Username sudah terdaftar.',
-                'alpha_numeric' => 'Username harus kombinasi huruf dan angka.',
                 'min_length' => 'Username minimal 5 karakter.',
+                'alpha_numeric' => 'Username harus kombinasi huruf dan angka.',
             ],
         ],
         'password' => [
@@ -41,7 +41,7 @@ class UserModel extends Model
             'rules' => 'required|min_length[6]',
             'errors' => [
                 'required' => 'Nama lengkap tidak boleh kosong.',
-                'min_length' => 'Nama lengkap minimal 4 karakter.',
+                'min_length' => 'Nama lengkap minimal 6 karakter.',
             ],
         ],
         'email' => [

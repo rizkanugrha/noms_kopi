@@ -2,16 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
-use App\Models\MakananModel;
-use App\Models\MinumanModel;
-use App\Models\SnackModel;
-
+use App\Models\KategoriModel;
+use App\Models\MenuModel;
 class Dashboard extends BaseController
 {
+    protected $menuModel;
     public function __construct()
     {
-        // Initialize SnackModel
+        $this->menuModel = new MenuModel();
     }
 
     public function index()
@@ -21,22 +19,25 @@ class Dashboard extends BaseController
 
     public function makanan()
     {
-        $makananModel = new MakananModel();
-        $data['makanan'] = $makananModel->findAll();
-        return view('dashboard/makanan', $data);
+        $kategori = $this->request->getVar('kategori') ?? 'Makanan';
+        $menus = $this->menuModel->getByCategory($kategori);
+
+        return view('dashboard/makanan', ['menus' => $menus, 'kategori' => $kategori]);
     }
 
     public function minuman()
     {
-        $minumanModel = new MinumanModel();
-        $data['minuman'] = $minumanModel->findAll();
-        return view('dashboard/minuman', $data);
+        $kategori = $this->request->getVar('kategori') ?? 'Minuman';
+        $menus = $this->menuModel->getByCategory($kategori);
+
+        return view('dashboard/minuman', ['menus' => $menus, 'kategori' => $kategori]);
     }
 
     public function snack()
     {
-        $snackModel = new SnackModel();
-        $data['snack'] = $snackModel->findAll();
-        return view('dashboard/snack', $data);
+        $kategori = $this->request->getVar('kategori') ?? 'Snack';
+        $menus = $this->menuModel->getByCategory($kategori);
+
+        return view('dashboard/snack', ['menus' => $menus, 'kategori' => $kategori]);
     }
 }
